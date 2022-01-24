@@ -14,6 +14,13 @@ class ChatInputField extends StatefulWidget {
 
 class _ChatInputFieldState extends State<ChatInputField> {
   final myController = TextEditingController();
+  String text = "";
+
+  void _setText(String message) {
+    setState(() {
+      text = message;
+    });
+  }
 
   @override
   void dispose() {
@@ -66,7 +73,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
                       child: TextField(
                         autofocus: true,
                         onChanged: (message) {
-                          toast(message);
+                          _setText(message);
                         },
                         controller: myController,
                         maxLines: null,
@@ -94,7 +101,10 @@ class _ChatInputFieldState extends State<ChatInputField> {
                           .withOpacity(0.64),
                     ),
                     const SizedBox(width: kDefaultPadding),
-                    const Icon(Icons.mic, color: kPrimaryColor),
+                    if (text.length < 1)
+                      const Icon(Icons.mic, color: kPrimaryColor),
+                    if (text.length > 0)
+                      const Icon(Icons.send, color: kPrimaryColor),
                   ],
                 ),
               ),
