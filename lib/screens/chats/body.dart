@@ -16,7 +16,11 @@ class Body extends StatelessWidget {
           color: kPrimaryColor,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
-                kDefaultPadding, 0, kDefaultPadding, kDefaultPadding),
+              kDefaultPadding,
+              0,
+              kDefaultPadding,
+              kDefaultPadding,
+            ),
             child: Row(
               children: [
                 FillOutlineButton(press: () {}, text: "Recent Message"),
@@ -33,16 +37,19 @@ class Body extends StatelessWidget {
           ),
         ),
         Expanded(
-            child: ListView.builder(
-          itemCount: chatsData.length,
-          itemBuilder: (context, index) => ChatCard(
-            chat: chatsData[index],
-            press: () => Navigator.push(
+          child: ListView.builder(
+            itemCount: chatsData.length,
+            itemBuilder: (context, index) => ChatCard(
+              chat: chatsData[index],
+              press: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const MessagesScreen())),
+                  builder: (context) => MessagesScreen(),
+                ),
+              ),
+            ),
           ),
-        ))
+        )
       ],
     );
   }

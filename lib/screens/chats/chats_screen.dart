@@ -18,8 +18,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
       appBar: buildAppBar(),
       body: const Body(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MessagesScreen())),
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MessagesScreen())),
         backgroundColor: kPrimaryColor,
         child: const Icon(
           Icons.person_add_alt_1,
